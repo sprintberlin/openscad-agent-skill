@@ -22,6 +22,3 @@ Place the library folder in:
 
 Or keep it next to the model and include by relative path.
 
-## Notes
-
-- Note the library and version in a comment at the top of the file.

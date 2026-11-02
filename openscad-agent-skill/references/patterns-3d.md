@@ -47,9 +47,7 @@ module rounded_box(size = [60, 40, 20], r = 4) {
 
 ## Holder (angled support)
 
-- Base wider than the supported object.
-- Gusset or fillet at the base-to-support joint.
-- Retaining lip clears the object on insertion.
+Consider stability, reinforcement and insertion clearance.
 
 ## Section switch
 
