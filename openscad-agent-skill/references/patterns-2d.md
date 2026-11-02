@@ -1,39 +1,22 @@
-# 2D construction patterns
+# 2D patterns
 
-2D work is not a lesser 3D. Profiles, outlines, gaskets, panels, engraving and cross-section checks all start here.
-
-## Rounded rectangle without a library
+## Rounded rectangle
 
 ```openscad
 module rounded_rect(size = [80, 50], r = 5) {
-    offset(r = r) offset(r = -r) square(size, center = true);
-}
-```
-
-Or with hull of four circles — predictable and cheap:
-
-```openscad
-module rounded_rect(size = [80, 50], r = 5) {
-    hull() {
-        for (x = [-size[0]/2 + r, size[0]/2 - r])
-            for (y = [-size[1]/2 + r, size[1]/2 - r])
-                translate([x, y]) circle(r = r);
-    }
+    hull() for (x = [-size[0]/2 + r, size[0]/2 - r], y = [-size[1]/2 + r, size[1]/2 - r])
+        translate([x, y]) circle(r = r);
 }
 ```
 
 ## Outline as polygon
-
-Use `polygon` when the outline is the design. Keep points in one list variable at the top.
 
 ```openscad
 outline = [[0,0],[70,0],[70,12],[12,12],[12,60],[0,60]];
 polygon(outline);
 ```
 
-## Subtract before you extrude
-
-Holes and slots belong in the 2D profile when they go all the way through:
+## Holes in the profile, then extrude
 
 ```openscad
 linear_extrude(height = 4)
@@ -44,25 +27,25 @@ difference() {
 }
 ```
 
-## Text and engraving
+## Text
 
 ```openscad
 text("M3", size = 6, halign = "center", valign = "center");
 ```
 
-- Check that the font exists on the machine. Default to a common font or leave `font` unset.
-- For engraving, extrude the text shallowly and subtract it from the plate.
+- Unset `font` uses the system default. A missing font logs a warning.
+- Engraving: `linear_extrude(0.6) text(...)` subtracted from the plate.
 
 ## Export
 
-- SVG: `openscad -o part.svg part.scad`
-- DXF: `openscad -o part.dxf part.scad`
-- A 2D file renders top-down by definition. Still look at the PNG: mirrored text and missing holes are easy to miss in code.
+- `openscad -o part.svg part.scad`
+- `openscad -o part.dxf part.scad`
+- A 2D export is a top view. Render the PNG to check mirrored text and missing holes.
 
 ## Cross-section of a 3D part
-
-`projection(cut = true)` at a chosen Z gives a 2D slice. Useful to check wall thickness without slicing software:
 
 ```openscad
 projection(cut = true) translate([0, 0, -5]) import("part.stl");
 ```
+
+The slice at z = 5 mm shows wall thickness.

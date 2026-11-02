@@ -1,49 +1,29 @@
-# Libraries worth using
+# Libraries
 
-Do not reimplement gears, threads and fillets. Use a library, and say in the file which one and which version.
-
-## BOSL2 — first choice for general modeling
-
-Shapes, rounding, attachments, screws, gears. Large but well documented.
+| Library | Use | License |
+|---|---|---|
+| [BOSL2](https://github.com/BelfrySCAD/BOSL2) | shapes, rounding, attachments, screws, gears | BSD-2-Clause |
+| [NopSCADlib](https://github.com/nophead/NopSCADlib) | printer parts, electronics, enclosures | GPL-3.0 |
+| [Round-Anything](https://github.com/Irev-Dev/Round-Anything) | filleted polygons | MIT |
+| [threads-scad](https://github.com/rcolyer/threads-scad) | metric threads | CC0 |
 
 ```openscad
 include <BOSL2/std.scad>
 cuboid([50, 30, 20], rounding = 3);
 ```
 
-- Repo: https://github.com/BelfrySCAD/BOSL2
-- Wiki: https://github.com/BelfrySCAD/BOSL2/wiki
-- License: BSD-2-Clause
+## Install
 
-## NopSCADlib — printer parts and electronics enclosures
-
-```openscad
-include <NopSCADlib/core.scad>
-```
-
-- Repo: https://github.com/nophead/NopSCADlib
-- License: GPL-3.0 (attention: affects distributed models built on it)
-
-## Round-Anything — filleted polygons
-
-- Repo: https://github.com/Irev-Dev/Round-Anything
-- License: MIT
-
-## threads-scad — metric threads
-
-- Repo: https://github.com/rcolyer/threads-scad
-- License: CC0
-
-## Installing
-
-Put the library folder in the OpenSCAD library directory:
+Place the library folder in:
 
 - Windows: `%USERPROFILE%\Documents\OpenSCAD\libraries\`
 - macOS: `~/Documents/OpenSCAD/libraries/`
 - Linux: `~/.local/share/OpenSCAD/libraries/`
 
-Then `include <BOSL2/std.scad>` resolves. Alternatively keep the library next to the model and use a relative include.
+Or keep it next to the model and include by relative path.
 
-**Rule for agents:** if a library is missing, say so and install it or vendor it. Do not silently substitute an approximation that changes the geometry.
+## Notes
 
-**License note:** some libraries (NopSCADlib, STEMFIE) are GPL. For models that will be shared, prefer BOSL2, Round-Anything or threads-scad.
+- Name the library and version in a comment at the top of the file.
+- A missing library is an error to report or fix. Substitutes change the geometry.
+- GPL libraries apply to shared models built on them.

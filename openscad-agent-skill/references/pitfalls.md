@@ -1,8 +1,10 @@
 # Pitfalls
 
-- **Wrong camera = wrong conclusion.** `--camera` rotation `0,0,0` is a top view. See `render-views.md`.
-- **Coplanar faces.** A subtracted body that ends exactly on a surface leaves a thin skin or flicker. Overshoot the cut.
-- **Low `$fn`.** The default makes circles visibly faceted. Set `$fn`.
-- **Export succeeded is not verified.** Always look at rendered views.
-- **Not on PATH (Windows).** Call `openscad.exe` by full path.
-- **Empty render.** An all-background image usually means nothing is in view or the model is empty. Check the camera and the top-level geometry.
+- Coplanar faces in `difference()` leave a skin or flicker. Extend the cutting body by 0.01 mm or more past the surface.
+- Default `$fn` gives faceted circles. Set `$fn`.
+- Wrong camera: rotation `0,0,0` is a top view.
+- Windows: the installer does not add OpenSCAD to PATH. Add `C:\Program Files\OpenSCAD`.
+- `use <lib>` imports modules and functions only; `include <lib>` also runs top-level code.
+- Top-level variables are constants within their scope. They are not reassigned at runtime.
+- Imported STL with an open mesh breaks booleans silently. Run `scripts/check_stl.py` on it first.
+- `minkowski()` is slow. Use `hull()` of primitives or BOSL2 rounding.

@@ -37,7 +37,7 @@ scale([x, y, z]) ...
 resize([x, y, z]) ...
 mirror([1, 0, 0]) ...
 color("steelblue") ...
-multmatrix(m) ...             // rarely needed; avoid
+multmatrix(m) ...             // 4x4 matrix
 ```
 
 ## Boolean operations
@@ -47,7 +47,7 @@ union()        { ... }        // default; combine
 difference()   { solid(); tool(); }   // first minus the rest
 intersection() { ... }        // keep only the overlap
 hull()         { ... }        // convex hull of children
-minkowski()    { ... }        // dilation; slow, use sparingly
+minkowski()    { ... }        // Minkowski sum; slow
 ```
 
 ## Modules and functions
@@ -99,9 +99,9 @@ import("profile.dxf");         // 2D: DXF, SVG
 projection(cut = true) ...     // 3D to 2D outline (or cross-section with cut=true)
 ```
 
-## Text output for the agent
+## Console output
 
-`echo()` prints to the console during compile. Use it to expose computed values:
+`echo()` prints during compile:
 
 ```openscad
 echo("inner width =", width - 2*wall);
