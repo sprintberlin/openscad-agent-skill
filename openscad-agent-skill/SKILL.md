@@ -12,11 +12,11 @@ Report a model as done only after viewing its renders.
 1. `openscad --version`. Not found: `references/install.md`.
 2. Write `part.scad` in a working folder.
    - Dimensions as named variables at the top; `$fn = 64` for round parts.
-   - References: `syntax.md`, `patterns-2d.md`, `patterns-3d.md`, `libraries.md`, `pitfalls.md`.
+   - References: `references/syntax.md`, `references/patterns-2d.md`, `references/patterns-3d.md`, `references/libraries.md`, `references/pitfalls.md`.
 3. Export.
    - 3D: `openscad -o part.stl part.scad`
    - 2D: `openscad -o part.svg part.scad` or `part.dxf`
-   - Read stderr and resolve warnings. A 3D export must report `Simple: yes`.
+   - Read the output and resolve warnings (the exit code stays 0). A 3D export reports `Status: NoError`.
 4. Render four views.
    ```
    openscad -o top.png   --imgsize=1200,900 --viewall --autocenter --camera=0,0,0,0,0,0,300   part.scad

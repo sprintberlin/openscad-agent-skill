@@ -41,7 +41,7 @@ socket_d = part_d + 2*clearance;
 ```openscad
 module rounded_box(size = [60, 40, 20], r = 4) {
     translate([size[0]/2, size[1]/2, 0])
-        linear_extrude(height = size[2]) rounded_rect([size[0], size[1]], r);   // from patterns-2d.md
+        linear_extrude(height = size[2]) rounded_rect([size[0], size[1]], r);   // from references/patterns-2d.md
 }
 ```
 
