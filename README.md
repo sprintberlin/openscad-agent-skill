@@ -34,7 +34,7 @@ Or clone and add the repository to `skills.external_dirs` in `~/.hermes/config.y
 - Python 3 only for the optional STL check
 - Image viewing for visual verification
 
-Verified on Windows with OpenSCAD 2021.01 and Python 3.13. Other platforms untested. Hermes install untested.
+Verified on Windows with OpenSCAD snapshot 2026.11.01 and Python 3.13. Other platforms untested. Hermes install untested.
 
 ## License
 
