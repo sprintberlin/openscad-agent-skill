@@ -24,6 +24,4 @@ Or keep it next to the model and include by relative path.
 
 ## Notes
 
-- Name the library and version in a comment at the top of the file.
-- A missing library is an error to report or fix. Substitutes change the geometry.
-- GPL libraries apply to shared models built on them.
+- Note the library and version in a comment at the top of the file.

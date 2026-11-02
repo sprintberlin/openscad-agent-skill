@@ -1,4 +1,4 @@
-// Block with a spherical cut-out. Rendered and inspected with OpenSCAD 2021.01.
+// Block with a spherical cut-out.
 $fn = 64;
 block = [60, 40, 20];
 sphere_d = 30;
