@@ -66,4 +66,4 @@ else
 
 ## Imported mesh
 
-`import("part.stl")` for booleans and remixes. Run `scripts/check_stl.py` on it first.
+`import("part.stl")` for booleans and remixes. Check questionable meshes before use.
