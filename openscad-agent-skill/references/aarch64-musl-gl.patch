@@ -1,0 +1,15 @@
+--- /home/user/.cache/openscad-build/openscad-2026.11-RC0/src/gui/QGLView.h.orig-gui	2026-11-01 04:44:08.000000000 +0100
++++ /home/user/.cache/openscad-build/openscad-2026.11-RC0/src/gui/QGLView.h	2026-11-09 06:47:02.554273529 +0100
+@@ -12,6 +12,12 @@
+ #include <QWheelEvent>
+ #include <QWidget>
+ #include <QtGlobal>
++#ifndef GL_APIENTRY
++#define GL_APIENTRY
++#endif
++#ifndef GL_APIENTRYP
++#define GL_APIENTRYP GL_APIENTRY*
++#endif
+ #include <QOpenGLWidget>
+ #include <QLabel>
+ #include <string>

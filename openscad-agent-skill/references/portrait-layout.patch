@@ -1,0 +1,14 @@
+--- a/src/gui/MainWindow.cc
++++ b/src/gui/MainWindow.cc
+@@ -4056,6 +4056,13 @@ void MainWindow::restoreWindowState()
+   restoreState(windowState);
+ 
++  // Mobile portrait layout: editor full-width at the bottom, console hidden
++  removeDockWidget(editorDock);
++  removeDockWidget(consoleDock);
++  consoleDock->hide();
++  addDockWidget(Qt::BottomDockWidgetArea, editorDock);
++  editorDock->show();
++  editorDock->raise();
++
+   if (windowState.size() == 0) {
